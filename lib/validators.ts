@@ -1,0 +1,15 @@
+import { z } from "zod";
+
+// schema for inserrting product
+export const insertProductSchmea = z.object({
+  name: z.string().min(3, "نام حداقل باید ۳ کاراکتر باشد"),
+  slug: z.string().min(3, "اسلاگ حداقل باید ۳ کاراکتر باشد"),
+  category: z.string().min(3, "دسته بندی را به درستی وارد کنید"),
+  brand: z.string().min(3, "برند را به درستی وارد کنید"),
+  description: z.string().min(3, "توضیحات را به درستی وارد کنید"),
+  stock: z.coerce.number(),
+  images: z.array(z.string()).min(1, "product must have an image"),
+  isFeatured: z.boolean(),
+  banner: z.string().nullable(),
+  price: z.coerce.number(),
+});
