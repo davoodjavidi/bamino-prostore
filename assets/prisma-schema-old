@@ -1,0 +1,25 @@
+generator client {
+    provider = "prisma-client"
+    output   = "../app/generated/prisma"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model Product {
+    id          String   @id @default(uuid())
+    name        String
+    slug        String   @unique(map: "product_slug_idx")
+    category    String
+    images      String[]
+    brand       String
+    description String
+    stock       Int
+    price       Int      @default(0)
+    rating      Decimal  @default(0)
+    numReviews  Int      @default(0)
+    isFeatured  Boolean  @default(false)
+    banner      String?
+    createdAt   DateTime @default(now()) @db.Timestamp(6)
+}
