@@ -19,3 +19,10 @@ export const signInFormSchema = z.object({
   email: z.email("آدرس ایمیل صحیح نیست"),
   password: z.string().min(6, "پسوورد باید حداقل ۶ کاراکتر باشد"),
 });
+
+// schema for user sign-up
+export const signUpFormSchema = z.object({
+  name: z.string().min(4, "نام و نام خانوادگی باید حداقل ۴ کاراکتر باشد"),
+  email: z.email("آدرس ایمیل صحیح نیست"),
+  password: z.string().min(6, "پسوورد باید حداقل ۶ کاراکتر باشد"),
+});

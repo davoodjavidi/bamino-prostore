@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { auth } from "../auth/auth";
-import { signInFormSchema } from "../validators";
+import { signInFormSchema, signUpFormSchema } from "../validators";
 
 // sign in
 export async function SignIn(prevState: unknown, formData: FormData) {
@@ -20,10 +20,34 @@ export async function SignIn(prevState: unknown, formData: FormData) {
         callbackURL: "http://localhost:3000/signINNNNN",
       },
     });
-    return { success: true, message: "Signed in successfully" };
+    return { success: true, message: "ورود با موفقیت انجام شد" };
   } catch (error) {
     console.log(error);
-    return { success: false, message: "Invalid Email or Password" };
+    return { success: false, message: "اطلاعات وارد شده صحیح نیست" };
+  }
+}
+
+// sign-up
+export async function SignUp(prevState: unknown, formData: FormData) {
+  const user = signUpFormSchema.parse({
+    name: formData.get("name"),
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
+  const { name, email, password } = user;
+
+  try {
+    await auth.api.signUpEmail({
+      body: {
+        name,
+        email,
+        password,
+      },
+    });
+    return { success: true, message: "ثبت نام با موفقیت انجام شد" };
+  } catch (error) {
+    console.log(error);
+    return { success: false, message: "مشکلی در ثبت نام شما بوجود آمد" };
   }
 }
 
