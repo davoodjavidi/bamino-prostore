@@ -13,3 +13,9 @@ export const insertProductSchmea = z.object({
   banner: z.string().nullable(),
   price: z.coerce.number(),
 });
+
+// schema for user sign-in
+export const signInFormSchema = z.object({
+  email: z.email("آدرس ایمیل صحیح نیست"),
+  password: z.string().min(6, "پسوورد باید حداقل ۶ کاراکتر باشد"),
+});

@@ -17,9 +17,7 @@ const Header = () => {
               priority={true}
             />
             <div className="flex flex-col">
-              <span className="hidden md:block font-bold text-lg">
-                {APP_NAME}
-              </span>
+              <span className="text-md font-bold sm:text-lg">{APP_NAME}</span>
               <span className="text-xs mr-2 font-semibold text-foreground/60">
                 نماد کیفیت و اعتماد
               </span>

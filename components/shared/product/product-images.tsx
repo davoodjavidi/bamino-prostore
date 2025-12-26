@@ -15,6 +15,7 @@ const ProductImages = ({ images }: { images: string[] }) => {
         width={1000}
         height={1000}
         className="min-h-[300px] object-cover object-center aspect-square hover:scale-101 transition-transform duration-200"
+        quality={80}
       />
       <div className="flex space-x-2">
         {images.map((image, index) => (
