@@ -1,4 +1,17 @@
 const sampleData = {
+  users: [
+    {
+      name: "داود",
+      email: "admin@gmail.com",
+      role: "admin",
+    },
+    {
+      name: "حسین",
+      email: "user@gmail.com",
+      role: "user",
+    },
+  ],
+
   products: [
     {
       name: "پیراهن پولو مردانه",
