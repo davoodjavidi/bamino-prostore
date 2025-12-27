@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SignIn, SignUp } from "@/lib/actions/user.actions";
+import { SignUp } from "@/lib/actions/user.actions";
 import { signUpDefaultValues } from "@/lib/constants";
 import Link from "next/link";
 import { useActionState } from "react";
@@ -56,6 +56,7 @@ const SignUpForm = () => {
             defaultValue={signUpDefaultValues.password}
           />
         </div>
+
         <div>
           <Button variant="default" className="w-full" disabled={pending}>
             {pending ? "در حال ثبت نام" : "ثبت نام"}
@@ -66,10 +67,10 @@ const SignUpForm = () => {
           <p className="text-destructive text-center text-sm">{data.message}</p>
         )}
         <div className="text-sm text-muted-foreground flex justify-around items-center">
-          <span>حساب کاربری ندارید؟</span>
+          <span>قبلا عضو شده اید؟</span>
           <Button asChild variant="link">
-            <Link href="/sign-up" className="text-sm" target="_self">
-              ثبت نام کنید
+            <Link href="/sign-in" className="text-sm" target="_self">
+              ورود
             </Link>
           </Button>
         </div>

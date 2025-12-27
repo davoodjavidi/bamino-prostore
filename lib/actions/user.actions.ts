@@ -17,7 +17,7 @@ export async function SignIn(prevState: unknown, formData: FormData) {
         email,
         password,
         rememberMe: true,
-        callbackURL: "http://localhost:3000/signINNNNN",
+        callbackURL: "http://localhost:3000/",
       },
     });
     return { success: true, message: "ورود با موفقیت انجام شد" };
@@ -42,6 +42,7 @@ export async function SignUp(prevState: unknown, formData: FormData) {
         name,
         email,
         password,
+        callbackURL: "http://localhost:3000/",
       },
     });
     return { success: true, message: "ثبت نام با موفقیت انجام شد" };
